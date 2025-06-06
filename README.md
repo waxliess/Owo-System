@@ -100,7 +100,7 @@ Kurulum ve Başlatma:
 1. İlk olarak ./controlbots klasörüne gidin ve terminal/cmd açın
 2. Aşağıdaki komutu yazın:
    npm i
-3. Ana dizine (bewrq.xd OWO System.auranest) geri dönün
+3. Ana dizine (Auranest-owo-_system) geri dönün
 4. Burada da terminal/cmd açın ve tekrar yazın:
    npm i
 5. Tekrar ./controlbots klasörüne gidin
