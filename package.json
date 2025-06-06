@@ -1,0 +1,67 @@
+{
+  "name": "Auranest-discord-owo-tool-farm",
+  "version": "3.2.8",
+  "description": "Bewrq's Auranest Discord Owo Tool Farm - Auranest owo system",
+  "main": "dest/index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=16"
+  },
+  "config": {
+    "signature": "Q29weXJpZ2h0IMKpIEt5b3UtSXp1bWkgW0V0ZXJuaXR5eXldIHggQWlrby1jaGFuLWFpIFtFbGxpZV0gMjAyMSAtIDIwMjQ="
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "npm install",
+    "start": "node dest/index.js",
+    "build": "tsc && chmod u+x obfuscate.sh && ./obfuscate.sh && node ./src/security/encrypt.js",
+    "dev": "npm run build && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bewrq/Auranest-owo-_system.git"
+  },
+  "keywords": [
+    "discord-owo-selfbot",
+    "discord-owo-tool",
+    "owo-auto-farm",
+    "owo-tool-farm",
+    "owo-selfbot"
+  ],
+  "author": {
+    "name": "Bewrq.xd",
+    "email": "turanefeberk23@gmail.com",
+    "url": "discord.gg/Auranest"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bewrq/Auranest-owo-_system/issues"
+  },
+  "homepage": "https://github.com/Bewrq/Auranest-owo-_system#readme",
+  "dependencies": {
+    "-": "^0.0.1",
+    "@inquirer/core": "^9.2.1",
+    "@inquirer/prompts": "^7.1.0",
+    "2captcha": "^3.0.5-2",
+    "adm-zip": "^0.5.16",
+    "axios": "^1.7.7",
+    "axios-cookiejar-support": "^5.0.2",
+    "chalk": "^5.3.0",
+    "colors": "^1.4.0",
+    "commander": "^12.1.0",
+    "discord.js": "^14.19.3",
+    "discord.js-selfbot-v13": "^3.5.1",
+    "fs": "^0.0.1-security",
+    "g": "^2.0.1",
+    "node-notifier": "^10.0.1",
+    "pm2": "^6.0.6",
+    "tough-cookie": "^5.0.0",
+    "winston": "^3.14.2"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "^0.5.5",
+    "@types/node": "^22.15.29",
+    "@types/node-notifier": "^8.0.5",
+    "typescript": "^5.6.2"
+  }
+}

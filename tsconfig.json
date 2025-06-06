@@ -1,0 +1,139 @@
+{
+  "compilerOptions": {
+    /* Daha fazla bilgi için https://aka.ms/tsconfig adresini ziyaret edin */
+
+    /* Projeler */
+    // "incremental": true,                              /* Artımlı derleme için .tsbuildinfo dosyalarını kaydeder. */
+    // "composite": true,                                /* Bir TypeScript projesinin proje referanslarıyla kullanılmasına izin veren kısıtlamaları etkinleştirir. */
+    // "tsBuildInfoFile": "./.tsbuildinfo",              /* Artımlı derleme dosyasının yolunu belirtir. */
+    // "disableSourceOfProjectReferenceRedirect": true,  /* Proje referanslarında bildirim dosyaları yerine kaynak dosyaların tercih edilmesini devre dışı bırakır. */
+    // "disableSolutionSearching": true,                 /* Çoklu proje referans kontrolünden projeyi çıkarır. */
+    // "disableReferencedProjectLoad": true,             /* TypeScript tarafından otomatik yüklenen proje sayısını azaltır. */
+
+    /* Dil ve Ortam */
+    "target": "ESNext",                                  /* Derlenen JavaScript'in dil sürümünü ve uyumlu kütüphane bildirimlerini ayarlar. */
+    "lib": ["ESNext"],                                   /* Hedef çalışma zamanı ortamını tanımlayan kütüphane bildirim dosyalarını belirtir. */
+    // "jsx": "preserve",                                /* Oluşturulan JSX kodunu belirtir. */
+    // "experimentalDecorators": true,                   /* Deneysel dekoratör desteğini etkinleştirir. */
+    // "emitDecoratorMetadata": true,                    /* Dekore edilmiş bildirimler için tasarım tipi meta verisi üretir. */
+    // "jsxFactory": "",                                 /* React JSX çıktısı için kullanılan JSX fabrika fonksiyonunu belirtir. */
+    // "jsxFragmentFactory": "",                         /* React JSX çıktısı için kullanılan JSX Fragment referansını belirtir. */
+    // "jsxImportSource": "",                            /* 'jsx: react-jsx*' kullanırken JSX fabrika fonksiyonlarını içe aktarmak için kullanılan modül belirticisini belirtir. */
+    // "reactNamespace": "",                             /* 'createElement' için çağrılan nesneyi belirtir. Sadece 'react' JSX çıktısı için geçerlidir. */
+    // "noLib": true,                                    /* Varsayılan lib.d.ts dahil olmak üzere hiçbir kütüphane dosyasını dahil etmez. */
+    // "useDefineForClassFields": true,                  /* ECMAScript standartlarına uygun sınıf alanları üretir. */
+    // "moduleDetection": "auto",                        /* Modül formatlı JS dosyalarının tespit yöntemini kontrol eder. */
+
+    /* Modüller */
+    "module": "NodeNext",                                /* Hangi modül kodunun üretileceğini belirtir. */
+    "rootDir": "./",                                     /* Kaynak dosyalarınızın kök klasörünü belirtir. */
+    "moduleResolution": "NodeNext",                      /* TypeScript'in bir modül belirticisinden dosya bulma yöntemini belirtir. */
+    // "baseUrl": "./",                                  /* Göreli olmayan modül adlarını çözmek için temel dizini belirtir. */
+    // "paths": {},                                      /* İçe aktarmaları ek arama konumlarına yeniden eşlemek için girişler belirtir. */
+    // "rootDirs": [],                                   /* Modül çözümlemesinde birden fazla klasörün bir olarak ele alınmasına izin verir. */
+    // "typeRoots": [],                                  /* './node_modules/@types' gibi birden fazla klasörü belirtir. */
+    "types": ["node"],                                  /* Bir kaynak dosyada referans verilmeden dahil edilecek tip paketlerini belirtir. */
+    // "allowUmdGlobalAccess": true,                     /* Modüllerden UMD global erişimine izin verir. */
+    // "moduleSuffixes": [],                             /* Modül çözümlerinde arama yapılacak dosya adı son eklerini listeler. */
+    // "allowImportingTsExtensions": true,               /* TypeScript dosya uzantılarının içe aktarılmasına izin verir. */
+    // "resolvePackageJsonExports": true,                /* Paket içe aktarmalarında package.json 'exports' alanını kullanır. */
+    // "resolvePackageJsonImports": true,                /* Paket içe aktarmalarında package.json 'imports' alanını kullanır. */
+    // "customConditions": [],                           /* Modül çözümlemesinde varsayılanlara ek koşullar belirler. */
+    // "noUncheckedSideEffectImports": true,             /* Yan etki içeren içe aktarmaları kontrol eder. */
+    // "resolveJsonModule": true,                        /* .json dosyalarının içe aktarılmasına izin verir. */
+    // "allowArbitraryExtensions": true,                 /* Bildirim dosyası varsa herhangi bir uzantıya sahip dosyaların içe aktarılmasına izin verir. */
+    // "noResolve": true,                                /* 'import', 'require' veya '<reference>' ifadelerinin TypeScript'in projeye dosya eklemesini engeller. */
+
+    /* JavaScript Desteği */
+    // "allowJs": true,                                  /* JavaScript dosyalarının programa dahil edilmesine izin verir. */
+    // "checkJs": true,                                  /* TypeScript tarafından kontrol edilen JavaScript dosyalarında hata raporlamasını etkinleştirir. */
+    // "maxNodeModuleJsDepth": 1,                        /* 'node_modules' içindeki JavaScript dosyalarını kontrol etmek için maksimum klasör derinliğini belirtir. */
+
+    /* Çıktı */
+    // "declaration": true,                              /* Projedeki TypeScript ve JavaScript dosyalarından .d.ts dosyaları üretir. */
+    // "declarationMap": true,                           /* d.ts dosyaları için kaynak haritaları oluşturur. */
+    // "emitDeclarationOnly": true,                      /* Sadece .d.ts dosyalarını üretir, JavaScript dosyalarını üretmez. */
+    // "sourceMap": true,                                /* Üretilen JavaScript dosyaları için kaynak haritası dosyaları oluşturur. */
+    // "inlineSourceMap": true,                          /* Kaynak haritası dosyalarını üretilen JavaScript'in içine dahil eder. */
+    // "noEmit": true,                                   /* Derlemeden dosya üretimini devre dışı bırakır. */
+    // "outFile": "./",                                  /* Tüm çıktıları tek bir JavaScript dosyasında toplar. */
+    "outDir": "./dest",                                 /* Tüm üretilen dosyalar için çıktı klasörünü belirtir. */
+    // "removeComments": true,                           /* Yorumların çıktıda yer almasını engeller. */
+    // "importHelpers": true,                            /* Yardımcı fonksiyonları projede bir kez içe aktarır. */
+    // "downlevelIteration": true,                       /* Daha uyumlu ancak daha ayrıntılı ve daha az performanslı döngü kodu üretir. */
+    // "sourceRoot": "",                                 /* Hata ayıklayıcıların kaynak kodunu bulması için kök yolu belirtir. */
+    // "mapRoot": "",                                    /* Hata ayıklayıcıların harita dosyalarını bulması için konum belirtir. */
+    // "inlineSources": true,                            /* Kaynak kodunu kaynak haritalarına dahil eder. */
+    // "emitBOM": true,                                  /* Çıktı dosyalarının başına UTF-8 BOM ekler. */
+    // "newLine": "crlf",                                /* Çıktı dosyaları için satır sonu karakterini ayarlar. */
+    // "stripInternal": true,                            /* '@internal' etiketi olan bildirimlerin çıktıda yer almasını engeller. */
+    // "noEmitHelpers": true,                            /* Özel yardımcı fonksiyonların çıktıda yer almasını engeller. */
+    // "noEmitOnError": true,                            /* Derleme hatası varsa dosya üretimini engeller. */
+    // "preserveConstEnums": true,                       /* 'const enum' bildirimlerinin silinmesini engeller. */
+    // "declarationDir": "./",                           /* Bildirim dosyaları için çıktı klasörünü belirtir. */
+
+    /* Geçiş Kısıtlamaları */
+    "isolatedModules": true,                            /* Her dosyanın diğer içe aktarmalara bağlı olmadan derlenebilmesini sağlar. */
+    // "verbatimModuleSyntax": true,                     /* İçe aktarma ve dışa aktarma ifadelerinin çıktıda olduğu gibi kalmasını sağlar. */
+    // "isolatedDeclarations": true,                     /* Dışa aktarımlar için yeterli açıklama gerektirir. */
+    // "allowSyntheticDefaultImports": true,             /* Varsayılan dışa aktarması olmayan modüllerde 'import x from y' kullanımına izin verir. */
+    "esModuleInterop": true,                            /* CommonJS modüllerinin içe aktarımını kolaylaştırmak için ek JavaScript üretir. */
+    // "preserveSymlinks": true,                         /* Sembolik bağlantıların gerçek yoluna çözülmesini engeller. */
+    "forceConsistentCasingInFileNames": true,           /* İçe aktarmalarda büyük/küçük harf uyumluluğunu zorunlu kılar. */
+
+    /* Tip Kontrolü */
+    "strict": true,                                     /* Tüm sıkı tip kontrolü seçeneklerini etkinleştirir. */
+    // "noImplicitAny": true,                            /* 'any' tipine sahip ifadeler ve bildirimler için hata raporlar. */
+    // "strictNullChecks": true,                         /* Tip kontrolünde 'null' ve 'undefined' değerlerini dikkate alır. */
+    // "strictFunctionTypes": true,                      /* Fonksiyon atamalarında parametre ve dönüş tiplerinin alt tip uyumluluğunu kontrol eder. */
+    // "strictBindCallApply": true,                      /* 'bind', 'call' ve 'apply' metodlarının argümanlarını kontrol eder. */
+    // "strictPropertyInitialization": true,             /* Sınıf özelliklerinin kurucuda atanıp atanmadığını kontrol eder. */
+    // "strictBuiltinIteratorReturn": true,              /* Yerleşik yineleyicilerin 'TReturn' tipini 'undefined' olarak ayarlar. */
+    // "noImplicitThis": true,                           /* 'this' ifadesinin 'any' tipinde olmasını engeller. */
+    // "useUnknownInCatchVariables": true,               /* catch bloğundaki değişkenlerin varsayılan tipini 'unknown' yapar. */
+    // "alwaysStrict": true,                             /* Her zaman 'use strict' ifadesini ekler. */
+    // "noUnusedLocals": true,                           /* Kullanılmayan yerel değişkenler için hata raporlar. */
+    // "noUnusedParameters": true,                       /* Kullanılmayan fonksiyon parametreleri için hata raporlar. */
+    // "exactOptionalPropertyTypes": true,               /* Opsiyonel özellik tiplerini yazıldığı gibi yorumlar. */
+    // "noImplicitReturns": true,                        /* Fonksiyonlarda açıkça dönüş yapılmayan kod yolları için hata raporlar. */
+    // "noFallthroughCasesInSwitch": true,               /* Switch ifadelerinde düşen durumlar için hata raporlar. */
+    // "noUncheckedIndexedAccess": true,                 /* İndeksle erişilen tiplere 'undefined' ekler. */
+    // "noImplicitOverride": true,                       /* Türetilmiş sınıflarda override edilen üyelerin 'override' anahtar kelimesiyle işaretlenmesini zorunlu kılar. */
+    // "noPropertyAccessFromIndexSignature": true,       /* İndeks tipiyle bildirilen anahtarlar için erişimi zorunlu kılar. */
+    "allowUnusedLabels": false,                         /* Kullanılmayan etiketler için hata raporlamasını devre dışı bırakır. */
+    "allowUnreachableCode": false,                      /* Ulaşılamayan kodlar için hata raporlamasını devre dışı bırakır. */
+
+    /* Tamamlayıcılık */
+    // "skipDefaultLibCheck": true,                      /* Varsayılan .d.ts dosyalarının tip kontrolünü atlar. */
+    "skipLibCheck": true                                /* Tüm .d.ts dosyalarının tip kontrolünü atlar. */
+ },
+  "exclude": [
+    "node_modules"
+  ],
+  "username": "Discord Kullanıcı Adınız",
+  "token": "Discord Token'ınız",
+  "guildID": "Sunucu ID'si",
+  "channelID": ["Kanal ID'si"],
+  "wayNotify": ["webhook"],
+  "musicPath": "",
+  "webhookURL": "Discord Webhook URL'niz (isteğe bağlı)",
+  "prefix": "!",
+  "adminID": "",
+  "captchaAPI": "2captcha",
+  "apiKey": "2captcha API Key'iniz (isteğe bağlı)",
+  "autoPray": ["pray"],
+  "autoGem": 1,
+  "autoCrate": true,
+  "autoFCrate": true,
+  "autoQuote": ["owo", "quote"],
+  "autoDaily": true,
+  "autoQuest": true,
+  "autoCookie": true,
+  "autoClover": true,
+  "autoOther": ["run", "pup", "piku","wsell all"],
+  "autoSell": true,
+  "autoSleep": true,
+  "autoReload": true,
+  "autoResume": true,
+  "showRPC": true
+}

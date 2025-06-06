@@ -1,0 +1,35 @@
+
+
+
+
+//nodejs 18.20.5 ubutnu da kullanmak istiyorsan aşadaıdaki 7 satırdan 18 e kadar hepsini kopyala terminala yapıştır ve bekle başka bisey yapmma tavsiyem bu
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+source ~/.bashrc
+nvm install 18.20.5
+nvm use 18.20.5
+sudo apt update
+sudo apt install -y curl
+curl -fsSL https://nodejs.org/dist/v18.20.5/node-v18.20.5-linux-x64.tar.xz -o node-v18.20.5-linux-x64.tar.xz
+tar -xf node-v18.20.5-linux-x64.tar.xz
+cd node-v18.20.5-linux-x64
+sudo cp -R * /usr/local/
+node -v
+npm -v
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

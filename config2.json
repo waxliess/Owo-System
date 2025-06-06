@@ -1,0 +1,41 @@
+{
+    "username": "",
+    "token": "",
+    "guildID": "",
+    "channelID": [
+        ""
+    ],
+    "wayNotify": [
+        "webhook"
+    ],
+    "musicPath": "",
+    "webhookURL": "",
+    "prefix": "!",
+    "adminID": "",
+    "captchaAPI": "2captcha",
+    "apiKey": "",
+    "autoPray": [
+        "pray"
+    ],
+    "autoGem": 1,
+    "autoCrate": true,
+    "autoFCrate": true,
+    "autoQuote": [
+        "owo",
+        "quote"
+    ],
+    "autoDaily": true,
+    "autoQuest": true,
+    "autoCookie": true,
+    "autoClover": true,
+    "autoOther": [
+        "run",
+        "pup",
+        "piku"
+    ],
+    "autoSell": true,
+    "autoSleep": true,
+    "autoReload": true,
+    "autoResume": true,
+    "showRPC": true
+}

@@ -1,0 +1,107 @@
+OWO Control Bot Sistemi - Gelişmiş Yönetim Paneli
+===============================================
+
+OWO Control Bot Sistemi, OWO farm botlarınızı tek bir yerden yönetmenizi sağlayan benzersiz bir kontrol sistemidir. Bu sistem tamamen özgün olup, diğer farm botlarından farklı olarak gelişmiş yönetim özellikleri sunmaktadır.
+
+Özgün Özellikler:
+----------------
+• Discord Üzerinden Tam Kontrol
+• Gelişmiş Panel Arayüzü
+• Otomatik Limit Sistemi
+• Paket Bazlı Bot Yönetimi
+• Gerçek Zamanlı İstatistikler
+• Otomatik Yeniden Başlatma Sistemi
+
+Kontrol Sistemi Özellikleri:
+---------------------------
+1. Token Yönetimi:
+   • Tek tıkla token ekleme
+   • Güvenli token saklama
+   • Çoklu hesap desteği
+   • Otomatik token doğrulama
+
+2. Limit Sistemi:
+   • Paket bazlı bot limitleri
+   • Otomatik limit kontrolü
+   • Görsel limit göstergesi
+   • Anlık limit durumu
+
+3. Panel Özellikleri:
+   • Kullanıcı dostu arayüz
+   • Tek tıkla bot ekleme/kaldırma
+   • Gerçek zamanlı durum takibi
+   • Otomatik hata bildirimi
+
+4. Güvenlik Özellikleri:
+   • Şifreli token saklama
+   • Otomatik ban koruması
+   • Güvenli process yönetimi
+   • Hata durumunda otomatik kurtarma
+
+5. Yeniden Başlatma Sistemi:
+   • 3 saatte bir otomatik yenileme
+   • Görsel ilerleme çubuğu
+   • Otomatik process temizleme
+   • Güvenli yeniden başlatma
+
+Not: Farm bot kodunun bazı kısımları açık kaynak kodlardan alınmış olup, kontrol sistemi tamamen özgün ve bana yani bewrq aittir. Kontrol sistemi, farm botlarından bağımsız olarak çalışan ve onları yöneten ayrı bir sistemdir.
+
+Önemli Bilgi:
+------------
+Bu kontrol sistemi, farm botlarından tamamen bağımsız olarak geliştirilmiş olup, benzersiz özellikleri ve gelişmiş yönetim kabiliyetleri ile diğer sistemlerden ayrılmaktadır. Sistem, Discord üzerinden tek bir panel üzerinden tüm botlarınızı yönetmenize olanak sağlar.
+
+Görsel Tanıtım:
+-------------
+Aşağıda bıraktığım görsellerden sistemin tüm özelliklerini detaylıca görebilirsiniz:
+
+1. Ana Panel:
+   • Modern ve kullanıcı dostu arayüz
+   • Tüm botların tek ekranda yönetimi
+   • Gerçek zamanlı durum göstergeleri
+   • Kolay erişilebilir butonlar
+
+2. Bot Yönetimi:
+   • Token ekleme/kaldırma işlemleri
+   • Bot durumu takibi
+   • Limit kontrolü
+   • Hata bildirimleri
+
+3. İstatistikler:
+   • Anlık bot performansı
+   • Kazanç takibi
+   • Sistem durumu
+   • Yeniden başlatma zamanlayıcısı
+
+4. Güvenlik Özellikleri:
+   • Token şifreleme
+   • Ban koruması
+   • Otomatik hata düzeltme
+   • Güvenli process yönetimi
+
+Bu görseller sayesinde sistemin nasıl çalıştığını ve tüm özelliklerini daha iyi anlayabilirsiniz. Her bir özellik detaylı olarak görselleştirilmiş ve kullanıcı dostu bir şekilde sunulmuştur.
+
+Destek ve İletişim:
+-----------------
+• Discord Sunucumuz: https://discord.gg/auranest
+• Geliştirici: <@817463869487185980>
+• 7/24 Teknik Destek
+• Hızlı Yanıt Sistemi
+• Detaylı Yardım ve Rehberlik
+
+Kurulum ve Başlatma:
+------------------
+1. İlk olarak ./controlbots klasörüne gidin ve terminal/cmd açın
+2. Aşağıdaki komutu yazın:
+   npm i
+3. Ana dizine (bewrq.xd OWO System.auranest) geri dönün
+4. Burada da terminal/cmd açın ve tekrar yazın:
+   npm i
+5. Tekrar ./controlbots klasörüne gidin
+6. yarrak.js dosyasını kendi bilgilerinize göre düzenleyin
+7. Son olarak şu komutu yazın:
+   node bewrq.cjs
+8. Discord'a gidin ve .owopanelamk yazın
+
+Not: Eğer kurulum sırasında herhangi bir sorun yaşarsanız, destek sunucumuza gelerek yardım alabilirsiniz. Size en kısa sürede yardımcı olacağız! 
+
+açıkacası fikr aklıma sıçarken geldi amk bir aradaş da çok istiyordu 
