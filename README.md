@@ -82,8 +82,15 @@ Bu görseller sayesinde sistemin nasıl çalıştığını ve tüm özelliklerin
 
 Destek ve İletişim:
 -----------------
+
+https://discord.com/users/817463869487185980
+
+https://discord.com/users/1150681244510728194
+
+https://discord.com/users/758758516516585491
+
 • Discord Sunucumuz: https://discord.gg/auranest
-• Geliştirici: <@817463869487185980>
+• Geliştirici:bewrq 
 • 7/24 Teknik Destek
 • Hızlı Yanıt Sistemi
 • Detaylı Yardım ve Rehberlik
