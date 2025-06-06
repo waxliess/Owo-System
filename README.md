@@ -110,9 +110,9 @@ Kurulum ve Başlatma:
 8. Discord'a gidin ve .owopanelamk yazın
 
 Not: Eğer kurulum sırasında herhangi bir sorun yaşarsanız, destek sunucumuza gelerek yardım alabilirsiniz. Size en kısa sürede yardımcı olacağız! 
-
-açıkacası fikr aklıma sıçarken geldi amk bir aradaş da çok istiyordu 
-
+------------------
+Açıkacası fikr aklıma sıçarken geldi amk bir aradaş da çok istiyordu 
+------------------
 
 
 
