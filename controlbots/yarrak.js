@@ -1,14 +1,10 @@
 module.exports = {
   // buraya kendi id yaz .owopanelamk komutu çalışmaz yoksa 
-  owospuowners: ["1150681244510728194", "817463869487185980"],
+  owospuowners: ["711262585344884786", "817463869487185980"],
 // burdada sistemi kullacakalrın rol ıd leri     "buraya rolü ": burasıda kaçtane kullanabilecekse okadar rakam gir örnek 20 çok fazla girme hata alrısn en faza 20 gir çünkü limte göre bar ekliyor discord da emojielr 15 karakter bazıalrı o yüzden mesaj limiti yer hata alrısın yani yapaamzsan bana yaz bewrq discırd üzerinden kardesim,
   roleLimits: {
-    "": 2,
-    "": 3,
-    "": 4,
-    "": 5,
-    "": 6,  
-    "bu tarz yazarak daha falza rolde ekleye bilirsin.": 7,
+    "1389296059930509372": 2,
+    "1389296064938377356": 3,
 
   },
 
@@ -38,9 +34,10 @@ module.exports = {
   },
 
   // panel channel id ve progress bar message id bunları kendi sunucundaki panel channel id ve progress bar message id ile değiştir yoksa hata alrısn yapaamzsan bana yaz bewrq discırd üzerinden kardesim
-  panelChannelId: "1362537505240387671",
-  progressBarMessageId: "1379109323137089750",
+  panelChannelId: "1389296145808756876",
+  progressBarMessageId: "1406016556340609097",
 
   // BOT TOKENİNİ BURAYA GİR! amk yoksa napcam aq 
   bewrinyarrabotuntokeni: ""
+
 };
